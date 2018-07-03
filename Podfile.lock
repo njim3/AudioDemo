@@ -1,0 +1,12 @@
+PODS:
+  - AmrVoiceConverter (0.1.0)
+
+DEPENDENCIES:
+  - AmrVoiceConverter
+
+SPEC CHECKSUMS:
+  AmrVoiceConverter: e1584b0c14e29212260af308125696e8024db758
+
+PODFILE CHECKSUM: c8e57b37592c6c50a8da7aa83d99f839c007cdeb
+
+COCOAPODS: 1.3.1

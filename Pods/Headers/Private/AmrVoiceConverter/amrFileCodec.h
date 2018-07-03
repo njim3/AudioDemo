@@ -1,0 +1,1 @@
+../../../AmrVoiceConverter/amrwapper/amrFileCodec.h

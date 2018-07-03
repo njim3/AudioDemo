@@ -1,0 +1,20 @@
+//
+//  AudioDemo-Prefix.pch
+//  AudioDemo
+//
+//  Created by njim3 on 01/02/2018.
+//  Copyright © 2018 cnbmsmart. All rights reserved.
+//
+
+#ifdef __OBJC__
+    #import "Conf.h"
+    #import "FileManager.h"
+#endif
+
+#ifdef DEBUG
+#  define DLOG(...) NSLog(__VA_ARGS__)
+#  define DLOG_CURRENT_METHOD NSLog(NSStringFromSelector(_cmd))
+#else
+#  define DLOG(...) ;
+#  define DLOG_CURRENT_METHOD ;
+#endif
