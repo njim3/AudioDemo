@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="orF-d1-9es">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="orF-d1-9es">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,7 +30,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Start Record"/>
                                 <connections>
-                                    <action selector="startRecordBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cEH-Aq-6ua"/>
+                                    <action selector="startRecordBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k6t-vh-W7Z"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmN-5B-dX7">
@@ -40,9 +40,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Stop Record"/>
-                                <connections>
-                                    <action selector="stopRecordBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z1F-17-onr"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzc-nR-yg8">
                                 <rect key="frame" x="140" y="187" width="95" height="33"/>
@@ -80,7 +77,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Reset"/>
                                         <connections>
-                                            <action selector="resetBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yug-B0-AJz"/>
+                                            <action selector="resetBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e3E-sr-1Qy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbX-WW-mgf">
@@ -90,9 +87,6 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Pause"/>
-                                        <connections>
-                                            <action selector="pauseBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SHe-W1-ZTS"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fi-mX-Bzk">
                                         <rect key="frame" x="8" y="236" width="359" height="27"/>
@@ -136,18 +130,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Audio Test" id="Bfg-Ok-3ze">
-                        <barButtonItem key="rightBarButtonItem" title="Test" id="IyE-p7-5Mc">
-                            <connections>
-                                <action selector="testBBIAction:" destination="BYZ-38-t0r" id="wjM-gm-tBQ"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Test" id="IyE-p7-5Mc"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="pauseBtn" destination="bbX-WW-mgf" id="74l-3u-URU"/>
-                        <outlet property="resetBtn" destination="EOR-hc-Mpe" id="qHb-el-rhE"/>
-                        <outlet property="startRecordBtn" destination="hVk-sr-6jb" id="lSp-ub-Nuf"/>
-                        <outlet property="stopRecordBtn" destination="cmN-5B-dX7" id="gti-C8-gfX"/>
-                        <outlet property="timeLbl" destination="4fi-mX-Bzk" id="aSJ-Nm-HTN"/>
+                        <outlet property="speakerView" destination="4Ey-C7-Z2K" id="EE5-4w-9eO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

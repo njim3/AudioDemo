@@ -1,9 +1,9 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AmrVoiceConverter"
-LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/AmrVoiceConverter" "${PODS_ROOT}/AmrVoiceConverter/lib"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AmrVoiceConverter"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"AmrVoiceConverter" -l"opencore-amrnb" -l"opencore-amrwb"
-PODS_BUILD_DIR = $BUILD_DIR
-PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AmrVoiceConverter" "${PODS_ROOT}/Headers/Public/UIView+FrameEx"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AmrVoiceConverter" "${PODS_CONFIGURATION_BUILD_DIR}/UIView+FrameEx" "${PODS_ROOT}/AmrVoiceConverter/lib"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AmrVoiceConverter" -isystem "${PODS_ROOT}/Headers/Public/UIView+FrameEx"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"AmrVoiceConverter" -l"UIView+FrameEx" -l"opencore-amrnb" -l"opencore-amrwb"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods

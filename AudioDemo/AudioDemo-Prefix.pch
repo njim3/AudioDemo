@@ -9,6 +9,7 @@
 #ifdef __OBJC__
     #import "Conf.h"
     #import "FileManager.h"
+    #import <UIView+FrameEx.h>
 #endif
 
 #ifdef DEBUG
