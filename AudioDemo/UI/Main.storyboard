@@ -40,6 +40,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Stop Record"/>
+                                <connections>
+                                    <action selector="stopRecordBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7gc-G8-Tao"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzc-nR-yg8">
                                 <rect key="frame" x="140" y="187" width="95" height="33"/>
@@ -133,7 +136,10 @@
                         <barButtonItem key="rightBarButtonItem" title="Test" id="IyE-p7-5Mc"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="countDownLbl" destination="4fi-mX-Bzk" id="xbW-yU-tHV"/>
                         <outlet property="speakerView" destination="4Ey-C7-Z2K" id="EE5-4w-9eO"/>
+                        <outlet property="startRecordBtn" destination="hVk-sr-6jb" id="P6i-pU-Mlb"/>
+                        <outlet property="stopRecordBtn" destination="cmN-5B-dX7" id="Zvw-E2-zjK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
