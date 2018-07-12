@@ -19,6 +19,7 @@
 		20419F742022C52600BA5155 /* AudioListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20419F732022C52600BA5155 /* AudioListVC.m */; };
 		20419F792022E20200BA5155 /* NavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20419F782022E20200BA5155 /* NavVC.m */; };
 		20419F842022F0FD00BA5155 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20419F832022F0FD00BA5155 /* FileManager.m */; };
+		20AD784120F74E2F00C9CE0B /* NSDate+Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AD784020F74E2F00C9CE0B /* NSDate+Formatter.m */; };
 		20D344EC20F4847800675548 /* AudioTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D344EB20F4847800675548 /* AudioTestVC.m */; };
 		CC00A181A84165B675ECEF47 /* libPods-AudioDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD02A379CCD21426C7D3EB1 /* libPods-AudioDemoTests.a */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,8 @@
 		20419F812022F09200BA5155 /* AudioDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioDemo-Prefix.pch"; sourceTree = "<group>"; };
 		20419F822022F0FD00BA5155 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		20419F832022F0FD00BA5155 /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		20AD783F20F74E2F00C9CE0B /* NSDate+Formatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Formatter.h"; sourceTree = "<group>"; };
+		20AD784020F74E2F00C9CE0B /* NSDate+Formatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formatter.m"; sourceTree = "<group>"; };
 		20D344EA20F4847800675548 /* AudioTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioTestVC.h; sourceTree = "<group>"; };
 		20D344EB20F4847800675548 /* AudioTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioTestVC.m; sourceTree = "<group>"; };
 		5F443461A0CC19659C3F6C41 /* Pods-AudioDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioDemoTests/Pods-AudioDemoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +206,7 @@
 				20419F7A2022EE7C00BA5155 /* Conf.h */,
 				20419F762022E1EF00BA5155 /* Nav */,
 				20419F7B2022EF8300BA5155 /* FileManager */,
+				20AD783E20F74E1700C9CE0B /* NSDateCategory */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -233,6 +237,15 @@
 				20419F812022F09200BA5155 /* AudioDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		20AD783E20F74E1700C9CE0B /* NSDateCategory */ = {
+			isa = PBXGroup;
+			children = (
+				20AD783F20F74E2F00C9CE0B /* NSDate+Formatter.h */,
+				20AD784020F74E2F00C9CE0B /* NSDate+Formatter.m */,
+			);
+			path = NSDateCategory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +394,7 @@
 				20419F792022E20200BA5155 /* NavVC.m in Sources */,
 				20419F742022C52600BA5155 /* AudioListVC.m in Sources */,
 				20419F452022ACC500BA5155 /* main.m in Sources */,
+				20AD784120F74E2F00C9CE0B /* NSDate+Formatter.m in Sources */,
 				20419F712022C50D00BA5155 /* PlayAudioVC.m in Sources */,
 				20D344EC20F4847800675548 /* AudioTestVC.m in Sources */,
 				20419F372022ACC500BA5155 /* AppDelegate.m in Sources */,

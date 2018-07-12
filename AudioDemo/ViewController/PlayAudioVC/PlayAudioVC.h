@@ -10,4 +10,6 @@
 
 @interface PlayAudioVC : UIViewController
 
+@property (nonatomic, copy) NSString* filePath;
+
 @end

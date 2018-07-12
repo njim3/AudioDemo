@@ -18,5 +18,10 @@
 
 - (BOOL)createAudiosFolder;
 
+- (void)deleteFileWithPath: (NSString*)filePath;
+
+- (BOOL)isFileExistsAtPath: (NSString*)filePath;
+
+- (NSMutableArray*)getAllSubFilePathFromDirectory: (NSString*)dirPath;
 
 @end

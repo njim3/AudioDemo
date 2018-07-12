@@ -18,5 +18,10 @@
 #define AUDIO_FOLDER_PATH               [DOCUMENT_PATH stringByAppendingPathComponent:  \
                                             AUDIO_FOLDER_NAME]
 
+#define CELLIDENTIFIER_AUDIOLISTVC      @"AudioListCellIdentifier"
+#define HEIGHT_AUDIOLIST_TV             70.0f
+
+#define SEGUE_AUDIOLIST2PLAYAUDIO       @"SEGUEAUDIOLIST2PLAYAUDIO"
+
 
 #endif /* Conf_h */

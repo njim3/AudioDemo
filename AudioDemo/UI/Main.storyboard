@@ -90,6 +90,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Pause"/>
+                                        <connections>
+                                            <action selector="pauseBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jVL-Bo-Wye"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fi-mX-Bzk">
                                         <rect key="frame" x="8" y="236" width="359" height="27"/>
@@ -133,7 +136,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Audio Test" id="Bfg-Ok-3ze">
-                        <barButtonItem key="rightBarButtonItem" title="Test" id="IyE-p7-5Mc"/>
+                        <barButtonItem key="rightBarButtonItem" title="Play" id="IyE-p7-5Mc">
+                            <connections>
+                                <action selector="playBBIAction:" destination="BYZ-38-t0r" id="Unz-Xg-Hcz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="countDownLbl" destination="4fi-mX-Bzk" id="xbW-yU-tHV"/>
@@ -161,6 +168,36 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JYw-5R-ug4">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AudioListCellIdentifier" textLabel="X2O-ik-cxc" detailTextLabel="3lH-pS-hWu" rowHeight="70" style="IBUITableViewCellStyleSubtitle" id="HcD-Lg-Gmq">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HcD-Lg-Gmq" id="9rm-VX-OBB">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X2O-ik-cxc">
+                                                    <rect key="frame" x="15" y="15" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3lH-pS-hWu">
+                                                    <rect key="frame" x="15" y="38.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="XtI-Mx-e7h" id="mUk-2X-Xf7"/>
+                                    <outlet property="delegate" destination="XtI-Mx-e7h" id="c7f-9v-xs5"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -171,14 +208,21 @@
                             <constraint firstItem="JYw-5R-ug4" firstAttribute="leading" secondItem="bvl-yb-S2D" secondAttribute="leading" id="W7d-f9-BBr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Audios" id="9vx-Et-3r1"/>
+                    <navigationItem key="navigationItem" title="Audios" id="9vx-Et-3r1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Gmj-TJ-kcq">
+                            <connections>
+                                <action selector="refreshAudioBBIAction:" destination="XtI-Mx-e7h" id="JRT-bm-eSQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <segue destination="D7b-AO-YY8" kind="push" id="uVj-3H-dMs"/>
+                        <outlet property="tableView" destination="JYw-5R-ug4" id="xBX-rT-z0a"/>
+                        <segue destination="D7b-AO-YY8" kind="push" identifier="SEGUEAUDIOLIST2PLAYAUDIO" id="uVj-3H-dMs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhz-Um-WgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="497" y="120"/>
+            <point key="canvasLocation" x="496.5" y="119.5"/>
         </scene>
         <!--Play Audio-->
         <scene sceneID="hhB-PC-zja">

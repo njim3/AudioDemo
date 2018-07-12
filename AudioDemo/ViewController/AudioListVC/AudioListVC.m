@@ -7,16 +7,23 @@
 //
 
 #import "AudioListVC.h"
+#import "NSDate+Formatter.h"
+#import "PlayAudioVC.h"
 
-@interface AudioListVC ()
+@interface AudioListVC () <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray* audioMutArr;
 
 @end
 
 @implementation AudioListVC
 
+#pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self setViewAction];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +31,108 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    UIViewController* destVC = segue.destinationViewController;
+    
+    if ([destVC isKindOfClass: [PlayAudioVC class]]) {
+        PlayAudioVC* playAudioVC = (PlayAudioVC*)destVC;
+        
+        playAudioVC.filePath = (NSString*)sender;
+    }
 }
-*/
+
+#pragma mark - View Action
+- (void)setViewAction {
+    [self getAudioListFromFolder];
+    
+    [self.tableView reloadData];
+}
+
+- (IBAction)refreshAudioBBIAction:(UIBarButtonItem *)sender {
+    [self getAudioListFromFolder];
+    
+    [self.tableView reloadData];
+}
+
+#pragma mark - Logical Process
+- (void)getAudioListFromFolder {
+    NSMutableArray* allSubFilePath = [[FileManager manager]
+                                      getAllSubFilePathFromDirectory:
+                                      AUDIO_FOLDER_PATH];
+    
+    NSArray* sortedAllFilePath = [allSubFilePath sortedArrayUsingComparator:
+                                  ^NSComparisonResult(id obj1, id obj2) {
+        NSInteger timeStampObj1 = [[[obj1 lastPathComponent]
+                                    stringByDeletingPathExtension]
+                                   integerValue];
+        NSInteger timeStampObj2 = [[[obj2 lastPathComponent]
+                                    stringByDeletingPathExtension]
+                                   integerValue];
+        
+        return timeStampObj1 > timeStampObj2 ?
+        NSOrderedAscending : NSOrderedDescending;
+    }];
+    
+    [self.audioMutArr removeAllObjects];
+    [self.audioMutArr addObjectsFromArray: sortedAllFilePath];
+}
+
+- (NSString*)getDateStrFromWavFilePath: (NSString*)wavFilePath {
+    NSInteger wavTimeStamp = [[[wavFilePath lastPathComponent]
+                               stringByDeletingPathExtension] integerValue];
+    
+    NSDate* wavDate = [NSDate dateWithTimeIntervalSince1970: wavTimeStamp];
+    
+    return [wavDate date2String];
+}
+
+#pragma mark - UITableView delegate & datasource methods
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
+    return self.audioMutArr.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return HEIGHT_AUDIOLIST_TV;
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView
+        cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:
+                             CELLIDENTIFIER_AUDIOLISTVC];
+    
+    NSString* wavFilePath = self.audioMutArr[indexPath.row];
+    NSString* dateStr = [self getDateStrFromWavFilePath: wavFilePath];
+    
+    cell.textLabel.text = [wavFilePath lastPathComponent];
+    cell.detailTextLabel.text = dateStr;
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath: indexPath animated: YES];
+    
+    NSString* wavFilePath = self.audioMutArr[indexPath.row];
+    
+    [self performSegueWithIdentifier: SEGUE_AUDIOLIST2PLAYAUDIO
+                              sender: wavFilePath];
+}
+
+
+
+
+
+#pragma mark - Variables getter & setter
+- (NSMutableArray*)audioMutArr {
+    if (!_audioMutArr) {
+        _audioMutArr = [NSMutableArray array];
+    }
+    
+    return _audioMutArr;
+}
 
 @end

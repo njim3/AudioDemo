@@ -75,5 +75,57 @@
     return 0.0f;
 }
 
+- (void)deleteFileWithPath: (NSString*)filePath {
+    if (![self.fileManager fileExistsAtPath: filePath]) {
+        DLOG(@"File not exists! %@", filePath);
+        
+        return ;
+    }
+    
+    NSError* error;
+    
+    [self.fileManager removeItemAtPath: filePath
+                                 error: &error];
+    
+    if (error) {
+        DLOG(@"Error delete file: %@, error: %@",
+             filePath, error.description);
+    }
+}
+
+- (BOOL)isFileExistsAtPath: (NSString*)filePath {
+    return [self.fileManager fileExistsAtPath: filePath];
+}
+
+- (NSMutableArray*)getAllSubFilePathFromDirectory: (NSString*)dirPath {
+    BOOL isDir = NO;
+    BOOL isExists = [self.fileManager fileExistsAtPath: dirPath
+                                           isDirectory: &isDir];
+    
+    if (!isExists || !isDir) {
+        return nil;
+    }
+    
+    NSMutableArray* allSubFilePathMutArr = [NSMutableArray array];
+    
+    NSArray* subPathArr = [self.fileManager contentsOfDirectoryAtPath: dirPath
+                                                                error: nil];
+    
+    for (NSString* str in subPathArr) {
+        NSString* subPath = [dirPath stringByAppendingPathComponent: str];
+        
+        BOOL isSubPathDir = NO;
+        
+        [self.fileManager fileExistsAtPath: subPath
+                               isDirectory: &isSubPathDir];
+        
+        if (!isSubPathDir) {
+            [allSubFilePathMutArr addObject: subPath];
+        }
+    }
+    
+    return allSubFilePathMutArr;
+}
+
 
 @end
