@@ -54,6 +54,17 @@
     [self.tableView reloadData];
 }
 
+- (void)deleteWavAudioAtIndexPath: (NSIndexPath*)indexPath {
+    NSString* wavFilePath = self.audioMutArr[indexPath.row];
+    
+    [[FileManager manager] deleteFileWithPath: wavFilePath];
+    
+    [self.audioMutArr removeObjectAtIndex: indexPath.row];
+    
+    [self.tableView deleteRowsAtIndexPaths: @[indexPath]
+                          withRowAnimation: UITableViewRowAnimationAutomatic];
+}
+
 #pragma mark - Logical Process
 - (void)getAudioListFromFolder {
     NSMutableArray* allSubFilePath = [[FileManager manager]
@@ -123,7 +134,22 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 
+- (BOOL)tableView:(UITableView *)tableView
+canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
 
+- (NSString*)tableView:(UITableView *)tableView
+titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"Delete";
+}
+
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // 删除该项
+    [self deleteWavAudioAtIndexPath: indexPath];
+}
 
 
 #pragma mark - Variables getter & setter

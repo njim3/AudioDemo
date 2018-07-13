@@ -7,8 +7,11 @@
 //
 
 #import "PlayAudioVC.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface PlayAudioVC ()
+@interface PlayAudioVC () {
+    AVAudioPlayer* _avAudioPlayer;
+}
 
 @end
 
@@ -24,5 +27,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - View Action
+- (IBAction)playAudioBtnAction:(UIButton *)sender {
+    if (_avAudioPlayer && _avAudioPlayer.isPlaying) {
+        return ;
+    }
+    
+    if ([[FileManager manager] isFileExistsAtPath: self.filePath]) {
+        _avAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:
+                          [NSURL fileURLWithPath: self.filePath]
+                                                                error: nil];
+        
+        [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback
+                                               error: nil];
+        
+        [_avAudioPlayer play];
+    }
+}
+
+- (IBAction)stopAudioBtnAction:(UIButton *)sender {
+    if (_avAudioPlayer && _avAudioPlayer.isPlaying) {
+        [_avAudioPlayer stop];
+    }
+}
+
 
 @end
