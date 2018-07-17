@@ -75,12 +75,14 @@
                 return ;
             
             // 重置
-            [self resetBtnAction: nil];
-            
-            _isStartRecord = YES;
-            
-            [self startRecording];
-            [self startTimer];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self resetBtnAction: nil];
+                
+                _isStartRecord = YES;
+                
+                [self startRecording];
+                [self startTimer];
+            });
             
         } else {
             // alert
@@ -169,8 +171,8 @@
 
 
 - (void)refreshTimeLbl {
-    self.countDownLbl.text = [NSString stringWithFormat: @"00:%02i",
-                              ++_countDown];
+    self.countDownLbl.text = [NSString stringWithFormat:
+                              @"00:%02i", ++_countDown];
     
     if (_countDown == 60) {
         // 停止

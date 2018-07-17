@@ -13,6 +13,8 @@
     AVAudioPlayer* _avAudioPlayer;
 }
 
+@property (weak, nonatomic) IBOutlet UIImageView *playVoiceIV;
+
 @end
 
 @implementation PlayAudioVC
@@ -20,12 +22,26 @@
 #pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self layoutViews];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - View Layout
+- (void)layoutViews {
+    [self setPlayVoiceIVStyle];
+}
+
+- (void)setPlayVoiceIVStyle {
+    self.playVoiceIV.animationImages = @[UIImageNamed(BG_PLAYVOICE_1),
+                                         UIImageNamed(BG_PLAYVOICE_2),
+                                         UIImageNamed(BG_PLAYVOICE_3)];
+    self.playVoiceIV.animationDuration = 0.8f;
+    self.playVoiceIV.animationRepeatCount = 0;
 }
 
 #pragma mark - View Action
@@ -43,12 +59,16 @@
                                                error: nil];
         
         [_avAudioPlayer play];
+        
+        [self.playVoiceIV startAnimating];
     }
 }
 
 - (IBAction)stopAudioBtnAction:(UIButton *)sender {
     if (_avAudioPlayer && _avAudioPlayer.isPlaying) {
         [_avAudioPlayer stop];
+        
+        [self.playVoiceIV stopAnimating];
     }
 }
 

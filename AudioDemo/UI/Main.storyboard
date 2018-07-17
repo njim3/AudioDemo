@@ -66,7 +66,6 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="4Ey-C7-Z2K" secondAttribute="height" multiplier="1:1" id="bxb-OP-4PY"/>
                                             <constraint firstAttribute="width" constant="168" id="lz5-EL-eb4"/>
@@ -264,14 +263,23 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recordbg" translatesAutoresizingMaskIntoConstraints="NO" id="PTx-oO-f7I">
                                         <rect key="frame" x="0.0" y="0.0" width="168" height="168"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playvoice3" translatesAutoresizingMaskIntoConstraints="NO" id="aCg-gP-GvD">
+                                        <rect key="frame" x="74" y="55" width="20" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="D58-X8-Zfj"/>
+                                            <constraint firstAttribute="height" constant="27" id="mav-fx-j70"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="168" id="BG7-Ho-OoB"/>
                                     <constraint firstAttribute="bottom" secondItem="PTx-oO-f7I" secondAttribute="bottom" id="D98-eh-Krx"/>
+                                    <constraint firstItem="aCg-gP-GvD" firstAttribute="top" secondItem="YtR-j4-SZm" secondAttribute="top" constant="55" id="bTW-n1-52F"/>
                                     <constraint firstAttribute="height" constant="168" id="juq-KD-vTh"/>
                                     <constraint firstItem="PTx-oO-f7I" firstAttribute="leading" secondItem="YtR-j4-SZm" secondAttribute="leading" id="o25-Po-fvx"/>
                                     <constraint firstItem="PTx-oO-f7I" firstAttribute="top" secondItem="YtR-j4-SZm" secondAttribute="top" id="qg4-nj-FUn"/>
+                                    <constraint firstItem="aCg-gP-GvD" firstAttribute="centerX" secondItem="YtR-j4-SZm" secondAttribute="centerX" id="ubm-4r-dLm"/>
                                     <constraint firstAttribute="trailing" secondItem="PTx-oO-f7I" secondAttribute="trailing" id="v9c-FN-D8T"/>
                                 </constraints>
                             </view>
@@ -287,6 +295,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Play Audio" id="qV5-l5-Puh"/>
+                    <connections>
+                        <outlet property="playVoiceIV" destination="aCg-gP-GvD" id="vjW-0e-Eod"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="raA-bl-4iH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -316,6 +327,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="recordbg" width="168" height="168"/>
+        <image name="playvoice3" width="20" height="26"/>
+        <image name="recordbg" width="153" height="153"/>
     </resources>
 </document>
